@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-# This script concatenates two strings to print a welcome message
+# This script prints a welcome message by concatenating two strings
 str1 = "Welcome to"
 str2 = "Holberton School!"
-print(f"{str1} {str2}")
+print(str1 + " " + str2)

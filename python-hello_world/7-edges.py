@@ -1,5 +1,4 @@
 #!/usr/bin/python3
-# This script slices the word into parts
 word = "Holberton"
 word_first_3 = word[:3]
 word_last_2 = word[-2:]

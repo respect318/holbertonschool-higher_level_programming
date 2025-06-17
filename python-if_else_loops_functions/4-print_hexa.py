@@ -1,2 +1,3 @@
 #!/usr/bin/python3
-print("{}".format(", ".join("{:d} = 0x{:x}".format(i, i) for i in range(99))))
+for i in range(99):
+    print("{:d} = 0x{:x}".format(i, i), end=", " if i != 98 else "\n")

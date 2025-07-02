@@ -1,17 +1,18 @@
 #!/usr/bin/python3
-"""Script that adds arguments to a list and saves them to a file."""
+"""
+This module for Load, add, save task
+"""
+from sys import argv as words
 
-
-import sys
-from 5-save_to_json_file import save_to_json_file
-from 6-load_from_json_file import load_from_json_file
-
+load_from_json_file = __import__('6-load_from_json_file').load_from_json_file
+save_to_json_file = __import__('5-save_to_json_file').save_to_json_file
 filename = "add_item.json"
 
 try:
-    items = load_from_json_file(filename)
-except Exception:
-    items = []
+    new_list = load_from_json_file(filename)
+except FileNotFoundError:
+    new_list = []
 
-items.extend(sys.argv[1:])
-save_to_json_file(items, filename)
+new_list.extend(words[1:])
+
+save_to_json_file(new_list, filename)

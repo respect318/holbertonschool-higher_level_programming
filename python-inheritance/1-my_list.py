@@ -7,15 +7,15 @@ class MyList(list):
 
     def __init__(self):
         """Initialize the MyList object."""
-        super().__init__()
+        list.__init__(self)
 
     def append(self, item):
         """Append an item to the list."""
-        super().append(item)
+        list.append(self, item)
 
     def __str__(self):
         """Return the string representation of the list."""
-        return super().__str__()
+        return list.__str__(self)
 
     def print_sorted(self):
         """Prints the list in ascending sorted order."""

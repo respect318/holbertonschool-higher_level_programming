@@ -2,7 +2,7 @@
 import pickle
 
 """
-This module for to serialize and deserialize
+This module is for serializing and deserializing
 custom Python objects using the pickle module.
 """
 
@@ -24,11 +24,14 @@ class CustomObject:
         except FileNotFoundError:
             print(f"File {filename} not found.")
 
-        @classmethod
-        def deserialize(cls, filename):
-            try:
-                with open(filename, "rb") as file:
-                    return pickle.load(file)
-            except FileNotFoundError:
-                print(f"File {filename} not found.")
-                return None
+    @classmethod
+    def deserialize(cls, filename):
+        try:
+            with open(filename, "rb") as file:
+                return pickle.load(file)
+        except FileNotFoundError:
+            print(f"File {filename} not found.")
+            return None
+        except Exception as e:
+            print(f"Error during deserialization: {e}")
+            return None

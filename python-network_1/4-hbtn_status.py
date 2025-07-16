@@ -1,16 +1,12 @@
 #!/usr/bin/python3
-"""Fetches URL and handles HTTPError exceptions"""
+"""Fetches https://intranet.hbtn.io/status using requests module"""
 
-import urllib.request
-import urllib.error
-import sys
+import requests
 
 if __name__ == "__main__":
-    url = sys.argv[1]
-
-    req = urllib.request.Request(url)
-    try:
-        with urllib.request.urlopen(req) as response:
-            print(response.read().decode("utf-8"))
-    except urllib.error.HTTPError as e:
-        print("Error code: {}".format(e.code))
+    url = 'https://intranet.hbtn.io/status'
+    response = requests.get(url)
+    content = response.text
+    print("Body response:")
+    print("\t- type: {}".format(type(content)))
+    print("\t- content: {}".format(content))
